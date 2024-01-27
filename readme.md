@@ -44,3 +44,22 @@ git init
 
 В коммандах git можно передавать HEAD как параметр, он будет восприниматься как хеш последнего коммита
 
+
+## О статусах файлов
+Файлы могут быть в 4 статусах:
+1. Untracked
+2. Tracked
+3. Staged
+4. Modified
+
+```mermaid
+graph LR;
+  Untracked -- "git add" --> Staged;
+  Staged    -- "git commit"     --> Tracked;
+  Staged    -- "Изменение файла"     --> Modified;
+  Modified  -- "git add"     --> Staged;
+  Tracked    -- "Изменение файла" --> Staged;
+
+%% стрелка без текста для примера: 
+  A --> B;
+``` 
